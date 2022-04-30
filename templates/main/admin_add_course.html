@@ -1,0 +1,50 @@
+{% extends 'main/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+    
+  </style>
+</head>
+<h2 style="text-align:center; color:blue;">Добавить программу</h2>
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+
+    <div class="form-group">
+        <label for="course_name">Название учебной программы</label>
+        {% render_field courseForm.title class="form-control" placeholder="Прикладная информатика" %}
+        <label for="code">Код</label>
+        {% render_field courseForm.code class="form-control" placeholder="10.10.10.10" %}
+        <label for="description">Описание</label>
+        {% render_field courseForm.description class="form-control" rows="10" %}
+        <label for="code">Реалистичная</label>
+        {% render_field courseForm.prof_real class="form-control" placeholder="0-100" %}
+        <label for="code">Интеллектуальная</label>
+        {% render_field courseForm.prof_intellect class="form-control" placeholder="0-100" %}
+        <label for="code">Социальная</label>
+        {% render_field courseForm.prof_social class="form-control" placeholder="0-100" %}
+        <label for="code">Конвенциальная</label>
+        {% render_field courseForm.prof_conventional class="form-control" placeholder="0-100" %}
+        <label for="code">Предпринимательская</label>
+        {% render_field courseForm.prof_initiative class="form-control" placeholder="0-100" %}
+        <label for="code">Творческая</label>
+        {% render_field courseForm.prof_art class="form-control" placeholder="0-100" %}
+
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Добавить</button>
+  </form>
+<br><br><br>
+{% endblock content %}
